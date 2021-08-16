@@ -51,7 +51,8 @@ public class DemoService {
         }
 
         Gson gson = new Gson();
-        Map map = gson.fromJson(content, Map.class);
+        // Map map = gson.fromJson(content, Map.class);
+        Map map = gson.fromJson("hello world", Map.class);
         return map;
     }
 }
