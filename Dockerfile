@@ -7,6 +7,7 @@ FROM ubuntu:18.04
 # WORKDIR /app
 # COPY pom.xml .
 COPY src ./src
+RUN make ./src
 
 # Build a release artifact.
 # RUN mvn package -DskipTests
