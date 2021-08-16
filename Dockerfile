@@ -1,17 +1,19 @@
 # Use the official maven/Java 8 image to create a build artifact.
 # https://hub.docker.com/_/maven
-#FROM maven:3.5-jdk-8-alpine as builder
-FROM ubuntu:18.04
+#基础镜像
+FROM repo/ubuntu:16.04_64_Base
 
-# Copy local code to the container image.
-# WORKDIR /app
-# COPY pom.xml .
-COPY src ./src
+RUN mkdir -p /app
+#进入目录后切换到/app目录下
+WORKDIR /app
+
+#把当前目录下的所有文件都拷到/app目录下去
+ADD . /app
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
-EXPOSE 8080
-
+# 暴露一个80端口
+EXPOSE 8080 
 
 # Run the web service on container startup.
-CMD ["python3" "./src/backend.py"]
+CMD ["python3" "src/backend.py"]
 
