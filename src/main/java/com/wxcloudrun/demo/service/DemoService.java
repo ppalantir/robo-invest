@@ -20,12 +20,8 @@ public class DemoService {
 
 
     @RequestMapping("/hello")
-    public Map sayHello(@RequestParam(name = "top") int top) throws Exception {
-        System.out.println("top：" + top);
-        if (top >= 10) {
-            throw new Exception("top over 10");
-        }
-
+    public Map sayHello() throws Exception {
+        
         Gson gson = new Gson();
         // Map map = gson.fromJson(content, Map.class);
         Map map = gson.fromJson("hello world", Map.class);
