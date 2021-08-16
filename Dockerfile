@@ -25,5 +25,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8080 
 
 # Run the web service on container startup.
-CMD ["python", "backend.py"]
+CMD python src/backend.py
 
