@@ -19,8 +19,21 @@ import java.util.Map;
 public class DemoService {
 
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public Map sayHello(@RequestParam(name = "top") int top) throws Exception {
+        System.out.println("top：" + top);
+        if (top >= 10) {
+            throw new Exception("top over 10");
+        }
+
+        Gson gson = new Gson();
+        // Map map = gson.fromJson(content, Map.class);
+        Map map = gson.fromJson("hello world", Map.class);
+        return map;
+    }
+
+    @RequestMapping("/news")
+    public Map getNews(@RequestParam(name = "top") int top) throws Exception {
         System.out.println("top：" + top);
         if (top >= 10) {
             throw new Exception("top over 10");
