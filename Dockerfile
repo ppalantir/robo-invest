@@ -3,6 +3,14 @@
 #基础镜像
 FROM boystar/ubantu:latest
 
+RUN apt-get update && \
+    apt-get install -y python3 \
+                        python3-dev \
+                        python3-pip \
+    && apt-get clean \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN mkdir -p /app
 #进入目录后切换到/app目录下
 WORKDIR /app
