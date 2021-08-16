@@ -1,7 +1,7 @@
 # Use the official maven/Java 8 image to create a build artifact.
 # https://hub.docker.com/_/maven
 #基础镜像
-FROM huangrui93/ubantu-flask
+FROM boystar/ubantu:latest
 
 RUN mkdir -p /app
 #进入目录后切换到/app目录下
