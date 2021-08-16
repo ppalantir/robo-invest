@@ -7,11 +7,11 @@ FROM ubuntu:18.04
 # WORKDIR /app
 # COPY pom.xml .
 COPY src ./src
-RUN make ./src
+RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
-# Build a release artifact.
-# RUN mvn package -DskipTests
+EXPOSE 8080
+
 
 # Run the web service on container startup.
-CMD python3 ./src/backend.py
+CMD ["python3" "./src/backend.py"]
 
