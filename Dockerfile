@@ -18,7 +18,7 @@ WORKDIR /app
 #把当前目录下的所有文件都拷到/app目录下去
 ADD . /app
 # RUN pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir -r requirements.txt
-RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # 暴露一个80端口
 EXPOSE 8080 
