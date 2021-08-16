@@ -12,19 +12,18 @@ FROM python:3.7
 #     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
-#进入目录后切换到/app目录下
+#指定工作目录，目录名称自己定义，如果当前指定的目录不存在的话，这个目录会自动被创建
 WORKDIR /app
 
 #把当前目录下的所有文件都拷到/app目录下去
-COPY scr .
-COPY requirements.txt .
+COPY ./ ./
 
 # RUN pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir -r requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # 暴露一个80端口
 EXPOSE 8080 
 
 # Run the web service on container startup.
-CMD python /app/src/backend.py
+CMD ["python", "backend.py"]
 
